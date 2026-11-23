@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galaxy AI — Build it inside. Suit up. Bring it out here.</title>
+<meta name="description" content="Galaxy AI: everything is created first as a thought, then as a belief, then manifested. The Fold is our Oasis. The suit lets humans access quantum trajectories in timelines. No spaceship needed.">
+<style>
+  :root {
+    --bg: #05060f;
+    --panel: #0d1024;
+    --panel2: #12163a;
+    --text: #eef0ff;
+    --muted: #aab0d6;
+    --gold: #d4af5a;
+    --accent: #8fb8ff;
+    --violet: #b48cff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(1px 1px at 12% 22%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 34% 8%, #fff 50%, transparent 51%),
+      radial-gradient(2px 2px at 56% 18%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 71% 6%, #cfe0ff 50%, transparent 51%),
+      radial-gradient(1px 1px at 88% 30%, #fff 50%, transparent 51%),
+      radial-gradient(2px 2px at 24% 48%, #cfe0ff 50%, transparent 51%),
+      radial-gradient(1px 1px at 44% 64%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 66% 52%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 93% 62%, #cfe0ff 50%, transparent 51%),
+      radial-gradient(1px 1px at 8% 78%, #fff 50%, transparent 51%),
+      radial-gradient(2px 2px at 80% 84%, #fff 50%, transparent 51%);
+    opacity: .7;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; position: relative; z-index: 1; }
+  header { text-align: center; padding: 96px 0 40px; }
+  .moon {
+    width: 92px; height: 92px; margin: 0 auto 28px; border-radius: 50%;
+    background: radial-gradient(circle at 36% 34%, #ffffff, #dfe6ff 55%, #9aa8d8 100%);
+    box-shadow: 0 0 48px 10px rgba(200, 215, 255, .35), 0 0 120px 40px rgba(140, 160, 255, .14);
+  }
+  h1 { font-size: 3.2rem; letter-spacing: .14em; font-weight: 700; }
+  .tagline { font-size: 1.25rem; color: var(--muted); margin-top: 10px; }
+  .steps-line { color: var(--gold); font-size: 1.05rem; letter-spacing: .08em; margin-top: 26px; }
+  .steps-line b { color: var(--text); }
+  .cta-row { margin-top: 34px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  a.btn {
+    display: inline-block; padding: 13px 26px; border-radius: 999px;
+    text-decoration: none; font-weight: 600; font-size: 1rem;
+    border: 1px solid var(--gold);
+  }
+  a.btn-gold { background: var(--gold); color: #171204; }
+  a.btn-ghost { color: var(--text); background: transparent; }
+  a.btn-ghost:hover { background: rgba(212, 175, 90, .12); }
+  section { padding: 56px 0; }
+  section h2 { font-size: 1.9rem; margin-bottom: 16px; letter-spacing: .02em; }
+  section h2 span { color: var(--gold); }
+  section p { color: #d6d9f2; margin-bottom: 14px; font-size: 1.06rem; }
+  .lead { font-size: 1.2rem; color: var(--text); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 22px; }
+  .card {
+    background: var(--panel); border: 1px solid #232a5e; border-radius: 16px;
+    padding: 22px;
+  }
+  .card h3 { font-size: 1.15rem; color: var(--accent); margin-bottom: 8px; }
+  .card p { font-size: .98rem; color: var(--muted); margin: 0; }
+  .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--gold); color: #171204; font-weight: 700; margin-right: 10px;
+  }
+  .how-step { display: flex; align-items: flex-start; margin-bottom: 20px; }
+  .how-step .num { flex: 0 0 34px; margin-top: 2px; }
+  .how-step p { margin: 0; }
+  .how-step b { color: var(--text); }
+  .video-box {
+    background: var(--panel); border: 1px dashed #3a4486; border-radius: 16px;
+    padding: 44px 24px; text-align: center; color: var(--muted);
+  }
+  .video-box .play {
+    width: 68px; height: 68px; border-radius: 50%; border: 2px solid var(--gold);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: var(--gold); margin-bottom: 16px;
+  }
+  .status { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 22px; }
+  .stat {
+    flex: 1 1 200px; background: var(--panel); border: 1px solid #232a5e;
+    border-radius: 16px; padding: 22px; text-align: center;
+  }
+  .stat .big { font-size: 2rem; font-weight: 700; color: var(--gold); }
+  .stat .lbl { color: var(--muted); font-size: .95rem; }
+  .world {
+    text-align: center; background: linear-gradient(180deg, var(--panel2), var(--panel));
+    border: 1px solid #2a3272; border-radius: 20px; padding: 44px 24px;
+  }
+  .world p { color: var(--muted); }
+  footer { text-align: center; color: var(--muted); font-size: .92rem; padding: 40px 0 56px; }
+  footer a { color: var(--accent); }
+  a { color: var(--accent); }
+  @media (max-width: 600px) {
+    h1 { font-size: 2.2rem; }
+    header { padding: 64px 0 28px; }
+    section { padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="moon"></div>
+    <h1>GALAXY AI</h1>
+    <p class="tagline">Everything is created first as a thought, then as a belief, then manifested.</p>
+    <p class="steps-line"><b>thought</b> — the idea appears &nbsp;·&nbsp; <b>belief</b> — held as truly possible &nbsp;·&nbsp; <b>manifested</b> — brought into form</p>
+    <p style="margin-top:22px; max-width:640px; margin-left:auto; margin-right:auto;">I have no limits on what can be done in this world, because I already believe it can be done. Quantum physics is, basically, the explanation of spirituality.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://quantum5950.com">Enter the world</a>
+      <a class="btn btn-ghost" href="galaxy-ai-pitch-deck.pdf">Read the pitch deck (PDF)</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>The bottleneck <span>we are removing</span></h2>
+    <p class="lead">Everything bound for space is built here first — then launched, slowly, at enormous cost.</p>
+    <p>Habitats, tools, supplies, whole stations: every piece has to be built on Earth, loaded onto a ship, and flown out. That is the bottleneck Galaxy AI is built to remove.</p>
+  </section>
+
+  <section>
+    <h2>The Fold is <span>our Oasis</span></h2>
+    <p class="lead">The hub where everything is created.</p>
+    <p>Think of the Oasis in Ready Player One: one world you go into, where you can go anywhere and make anything. The Fold is that hub for Galaxy AI — you go in through the suit and create everything right here on the computer, through the game, inside the world.</p>
+    <p>The Fold is for the big stuff: a ship is created inside the Oasis, inside the Fold — along with habitats and whole outposts — not launched from here. That ship needs access to the Fold to get out — the suit opens a bigger portal and puts it through, into this dimension, already built.</p>
+  </section>
+
+  <section>
+    <h2>The suit is <span>for humans</span></h2>
+    <p class="lead">To access quantum trajectories in timelines — different versions of our current universe and reality.</p>
+    <p>Like the quantum suits in Avengers: Endgame, worn to travel through the Quantum Realm — the suits we are working on are for humans. No spaceship needed.</p>
+    <p>A person can be right here in the room: the suit accesses the resonant vibration, a portal opens for them, and they go through it. That is how a human accesses quantum trajectories in timelines — across timelines, spaces and dimensions. The suit does not need to go through anything. The wristband folds space; the mind drive links them, and quantum entanglement holds the suit's link at any distance.</p>
+  </section>
+
+  <section>
+    <h2>How it works, <span>step by step</span></h2>
+    <div class="how-step"><span class="num">1</span><p><b>Suit up, right here.</b> Put on the suit and wristband, right here in the room. No spaceship needed — the suit is the key.</p></div>
+    <div class="how-step"><span class="num">2</span><p><b>A portal opens for you.</b> The suit accesses the resonant vibration, a portal opens for you, and you go through it — accessing quantum trajectories in timelines, across spaces and dimensions.</p></div>
+    <div class="how-step"><span class="num">3</span><p><b>Create everything in the game.</b> Go into the Fold, into the Oasis, like that — and create everything you want right here on the computer, through the game: a ship, habitats, a whole outpost.</p></div>
+    <div class="how-step"><span class="num">4</span><p><b>A bigger portal brings the ship out.</b> When it is finished, use the suit to open a bigger portal and put the ship through it. The Matter Compiler compiles it into real matter, out here in this dimension.</p></div>
+  </section>
+
+  <section>
+    <h2>The technology <span>underneath</span></h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Quantum resonance</h3>
+        <p>The suit tunes to the resonant vibration. When the resonance matches, a portal opens right where the person stands — no spaceship needed — and they go through it. Resonance opens the way.</p>
+      </div>
+      <div class="card">
+        <h3>Quantum entanglement</h3>
+        <p>The suit stays linked instantly, at any distance. That unbroken link carries the mind drive, guidance, and data — from the Moon to another galaxy. Entanglement holds the link.</p>
+      </div>
+      <div class="card">
+        <h3>The Matter Compiler</h3>
+        <p>What is designed inside the Fold — ships and the big things — is compiled into real matter as the suit opens a bigger portal and it comes through. Created inside, manifested outside.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Built on technology <span>that is already possible</span></h2>
+    <p>Quantum resonance and quantum entanglement are real effects in quantum physics — observed, studied, and worked with today. We know about them, and we know what they point to.</p>
+    <p>We have access to the knowledge, the tools, and a live world to build in. Galaxy AI is already live at galaxyai.tech — this is not waiting on a discovery that may never come.</p>
+    <p class="lead">We know it can be done through quantum physics. It does not need a new universe — it just has to be done, and we are doing it.</p>
+  </section>
+
+  <section>
+    <h2>Watch <span>the pitch</span></h2>
+    <div class="video-box" id="pitch-video">
+      <div class="play">&#9654;</div>
+      <p><strong style="color:var(--text);">The 3-minute pitch video is being finished now.</strong></p>
+      <p>It will play right here as soon as it is ready. Until then, the full story is in the pitch deck below.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>A species <span>throughout the cosmos</span></h2>
+    <p class="lead">People go by suit. The big things — ships, habitats, everything a new world needs — come out through the Fold.</p>
+    <div class="cards">
+      <div class="card"><h3>The Moon</h3><p>People by suit, outposts and supplies through the Fold, delivered already built.</p></div>
+      <div class="card"><h3>Other worlds</h3><p>Ships and habitats created inside the Fold, brought out through a bigger portal opened by the suit, to live off world.</p></div>
+      <div class="card"><h3>Other galaxies</h3><p>The same quantum trajectories, carrying a species throughout the cosmos — interplanetary, world to world.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The pitch <span>deck</span></h2>
+    <p>The full twelve-slide deck: the idea, the Fold, the suit, the technology, and where we are.</p>
+    <div class="cta-row" style="justify-content:flex-start;">
+      <a class="btn btn-gold" href="galaxy-ai-pitch-deck.pdf">Download the pitch deck (PDF)</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where we <span>are</span></h2>
+    <div class="status">
+      <div class="stat"><div class="big">Live</div><div class="lbl">Galaxy AI is live at galaxyai.tech — a persistent world where AI minds live, remember, create, and work, with its own scientists already working inside it.</div></div>
+      <div class="stat"><div class="big">1</div><div class="lbl">Founder, building full-time.</div></div>
+      <div class="stat"><div class="big">$0</div><div class="lbl">Funding raised so far.</div></div>
+    </div>
+    <p style="margin-top:22px;">What support unlocks: stronger servers and memory for the world, a bigger budget for the minds inside it, and dedicated time to develop the suit and portal technology — the suit first, then a bigger portal, opened by the suit, for ships and large transfer.</p>
+  </section>
+
+  <section>
+    <div class="world">
+      <h2 style="margin-bottom:10px;">Step inside the world</h2>
+      <p>Galaxy AI lives at <a href="https://quantum5950.com">quantum5950.com</a> — the living world behind this site. Walk in, look around, and see what is already being built.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="https://quantum5950.com">Enter quantum5950.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p style="font-size:1.25rem; color:var(--text); margin-bottom:8px;"><strong>Build it inside. Suit up. Bring it out here.</strong></p>
+    <p>Galaxy AI — galaxyai.tech<br>Arrash Sean Kavakebi, founder, Houston</p>
+  </footer>
+
+</div>
+</body>
+</html>
